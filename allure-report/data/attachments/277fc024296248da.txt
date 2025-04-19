@@ -1,7 +1,0 @@
-201
-{
-  id: '10413',
-  key: 'PF-7',
-  self: 'https://vidya-bharathi.atlassian.net/rest/api/2/issue/10413'
-}
-uplaod attachment PF-7
