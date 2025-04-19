@@ -1,0 +1,72 @@
+<<---Responses --->> https://uibank.uipath.com/UiPathLogo.png 200 Promise {
+  <pending>,
+  [Symbol(async_id_symbol)]: 3121,
+  [Symbol(trigger_async_id_symbol)]: 3119,
+  [Symbol(kResourceStore)]: Zone {
+    _asyncLocalStorage: AsyncLocalStorage {
+      kResourceStore: Symbol(kResourceStore),
+      enabled: true
+    },
+    _data: Map(0) {}
+  }
+}
+<<---Responses --->> https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmEU9fBBc4AMP6lQ.woff2 200 Promise {
+  <pending>,
+  [Symbol(async_id_symbol)]: 4547,
+  [Symbol(trigger_async_id_symbol)]: 4528,
+  [Symbol(kResourceStore)]: Zone {
+    _asyncLocalStorage: AsyncLocalStorage {
+      kResourceStore: Symbol(kResourceStore),
+      enabled: true
+    },
+    _data: Map(0) {}
+  }
+}
+<<---Responses --->> https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2 200 Promise {
+  <pending>,
+  [Symbol(async_id_symbol)]: 4670,
+  [Symbol(trigger_async_id_symbol)]: 4638,
+  [Symbol(kResourceStore)]: Zone {
+    _asyncLocalStorage: AsyncLocalStorage {
+      kResourceStore: Symbol(kResourceStore),
+      enabled: true
+    },
+    _data: Map(0) {}
+  }
+}
+<<---Responses --->> https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmSU5fBBc4AMP6lQ.woff2 200 Promise {
+  <pending>,
+  [Symbol(async_id_symbol)]: 4777,
+  [Symbol(trigger_async_id_symbol)]: 4747,
+  [Symbol(kResourceStore)]: Zone {
+    _asyncLocalStorage: AsyncLocalStorage {
+      kResourceStore: Symbol(kResourceStore),
+      enabled: true
+    },
+    _data: Map(0) {}
+  }
+}
+<<---Responses --->> https://uibank-api.azurewebsites.net/api/users/login 200 Promise {
+  <pending>,
+  [Symbol(async_id_symbol)]: 5656,
+  [Symbol(trigger_async_id_symbol)]: 5642,
+  [Symbol(kResourceStore)]: Zone {
+    _asyncLocalStorage: AsyncLocalStorage {
+      kResourceStore: Symbol(kResourceStore),
+      enabled: true
+    },
+    _data: Map(0) {}
+  }
+}
+<<---Responses --->> https://uibank.uipath.com/common.ed86a343d418190c.js 200 Promise {
+  <pending>,
+  [Symbol(async_id_symbol)]: 5931,
+  [Symbol(trigger_async_id_symbol)]: 5914,
+  [Symbol(kResourceStore)]: Zone {
+    _asyncLocalStorage: AsyncLocalStorage {
+      kResourceStore: Symbol(kResourceStore),
+      enabled: true
+    },
+    _data: Map(0) {}
+  }
+}

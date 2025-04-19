@@ -1,0 +1,109 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: To abort the images from loading
+- Location: C:\Users\DELL\Desktop\POM_Feb\tests\ni.spec.ts:21:6
+
+# Error details
+
+```
+Error: page.goto: Target page, context or browser has been closed
+Call log:
+  - navigating to "https://www.salesforce.com/", waiting until "load"
+
+    at C:\Users\DELL\Desktop\POM_Feb\tests\ni.spec.ts:23:15
+```
+
+# Test source
+
+```ts
+   1 | import test from "@playwright/test";
+   2 |
+   3 | test(`Monitoring Network interception`,async({page})=>{
+   4 |  await page.goto("https://login.salesforce.com/")
+   5 |  //monitoring the request and response
+   6 |  page.on('request',request=>{
+   7 |     console.log(`<<--Request--->>`,request.method(),request.url(),request.postData());
+   8 |   })
+   9 | page.on('response', async response => {
+  10 |    const headers = await response.allHeaders();
+  11 |    console.log(`<<---Responses --->>`,  headers);
+  12 |  });
+  13 |   await page.fill("#username","vidyar@testleaf.com")
+  14 |  await page.fill("#password","Sales@123")
+  15 |  await page.click("#Login")
+  16 |  await page.waitForTimeout(5000)
+  17 |  await page.title()
+  18 | })
+  19 |
+  20 |
+  21 | test.only(`To abort the images from loading`,async({page})=>{
+  22 |    //await page.route("**/*.{gif}",route=>route.abort())
+> 23 |    await page.goto("https://www.salesforce.com/")
+     |               ^ Error: page.goto: Target page, context or browser has been closed
+  24 |    await page.waitForTimeout(5000)
+  25 | })
+  26 |
+  27 |
+  28 | test(`Modififying the request `,async({page})=>{
+  29 |    await page.goto("https://login.salesforce.com/")
+  30 |
+  31 |    await page.route("**/aura?preloadActions",async(route,request)=>{
+  32 |        console.log(request.postData())
+  33 |        await route.continue({headers:
+  34 |          {
+  35 |          date: 'Sat, 20 Apr 2025 08:08:20 GMT',
+  36 |          },postData:{
+  37 |             "aura:token":""
+  38 |          }
+  39 |        })      
+  40 |     })
+  41 |
+  42 |     await page.fill("#username","vidyar@testleaf.com")
+  43 |     await page.fill("#password","Sales@123")
+  44 |     await page.click("#Login")
+  45 |     await page.waitForTimeout(5000)
+  46 |     await page.title()
+  47 |    
+  48 | })
+  49 |
+  50 |
+  51 | test(`Modifying response`,async({page})=>{
+  52 |
+  53 |    await page.goto("https://login.salesforce.com/")
+  54 |
+  55 |    await page.route("**/aura?preloadActions",async(route,request)=>{
+  56 |    await route.fulfill({
+  57 |       status: 200,
+  58 |       contentType: 'application/json',
+  59 |       headers: {
+  60 |         date: 'Sun, 21 Apr 2025 08:08:20 GMT'
+  61 |       },
+  62 |       body: JSON.stringify({ result: "This is a mocked response for future date." })
+  63 |     });
+  64 |
+  65 |     page.on('response', async (response) => {
+  66 |       const url = response.url();
+  67 |       const headers = response.headers();
+  68 |       if (url.includes('aura?preloadActions')) {
+  69 |         console.log('✅ Mocked response for:', url);
+  70 |         console.log(headers);
+  71 |       }
+  72 |     });
+  73 |   })
+  74 |
+  75 |
+  76 |
+  77 |   await page.fill("#username","vidyar@testleaf.com")
+  78 |   await page.fill("#password","Sales@123")
+  79 |   await page.click("#Login")
+  80 |   await page.waitForTimeout(5000)
+  81 |   await page.title()
+  82 |  
+  83 | })
+```

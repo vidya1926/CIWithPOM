@@ -1,0 +1,392 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: To abort the images from loading
+- Location: C:\Users\DELL\Desktop\POM_Feb\tests\ni.spec.ts:21:6
+
+# Error details
+
+```
+Error: page.goto: Test timeout of 30000ms exceeded.
+Call log:
+  - navigating to "https://www.salesforce.com/", waiting until "load"
+
+    at C:\Users\DELL\Desktop\POM_Feb\tests\ni.spec.ts:23:15
+```
+
+# Page snapshot
+
+```yaml
+- link "Skip to content"
+- banner:
+  - link "Salesforce Home IN":
+    - img "Salesforce Home IN"
+  - navigation "Salesforce Main Menu":
+    - list:
+      - listitem:
+        - button "Products"
+      - listitem:
+        - button "Industries"
+      - listitem:
+        - button "Customers"
+      - listitem:
+        - button "Learning"
+      - listitem:
+        - button "Support"
+      - listitem
+      - listitem
+      - listitem:
+        - button "More"
+  - navigation "Site tools":
+    - list:
+      - listitem:
+        - link "Contact Us"
+        - text: 1800-420-7332
+      - listitem:
+        - link "Search"
+      - listitem:
+        - button "Change Region"
+        - list
+      - listitem:
+        - button "Login"
+    - link "Try for free"
+- main:
+  - article:
+    - paragraph: Humans with Agents, driving success together.
+    - link "Discover Agetnforce and its business benefits.": Discover Agentforce
+  - article:
+    - img
+    - paragraph: Hello!
+    - heading "Try Salesforce Starter Suite for free." [level=1]
+    - paragraph: Unite marketing, sales, and service in a single app. Try Salesforce Starter Suite today. There's nothing to install. No credit card required.
+    - 'link "Start free trial: Try Salesforce Starter Suite for free."': Start free trial
+    - 'link "Watch demo: Try Salesforce Starter Suite for free."': Watch demo
+  - heading "Learn what Salesforce products can do for you." [level=2]
+  - article:
+    - link "Small Business":
+      - img "Small Business"
+    - heading "Small Business" [level=3]:
+      - link "Small Business"
+    - paragraph: Sales, service, and email outreach tools in a single app.
+    - 'link "Learn more: Small Business"': Learn more
+  - article:
+    - link "Sales Cloud":
+      - img "Sales Cloud"
+    - heading "Sales Cloud" [level=3]:
+      - link "Sales Cloud"
+    - text: "Close more deals and speed up growth with the #1 CRM."
+    - 'link "Learn more: Sales Cloud"': Learn more
+  - article:
+    - link "Service Cloud":
+      - img "Service Cloud"
+    - heading "Service Cloud" [level=3]:
+      - link "Service Cloud"
+    - text: Make customers happy faster and build loyalty with Service Cloud.
+    - 'link "Learn more: Service Cloud"': Learn more
+  - article:
+    - link "Marketing Cloud":
+      - img "Marketing Cloud"
+    - heading "Marketing Cloud" [level=3]:
+      - link "Marketing Cloud"
+    - text: Build customer relationships for life with data-first digital marketing.
+    - 'link "Learn more: Marketing Cloud"': Learn more
+  - 'link "View all our products: Learn what Salesforce products can do for you."': View all our products
+  - article:
+    - heading "We bring companies and customers together" [level=2]
+    - paragraph: Salesforce is the world’s most trusted customer relationship management (CRM) platform. We help your marketing, sales, commerce, service and IT teams work as one from anywhere — so you can keep your customers happy everywhere.
+    - 'link "Start free trial: We bring companies and customers together"': Start free trial
+    - 'link "Watch demos: We bring companies and customers together"': Watch demos
+  - heading "Learn valuable skills for free, with Trailhead." [level=2]
+  - paragraph: Follow guided learning paths and get hands-on to learn Salesforce, digital, and soft skills from anywhere.
+  - article:
+    - article:
+      - 'link "Salesforce Values: Quick Look"':
+        - 'img "Salesforce Values: Quick Look"'
+      - text: Module
+      - 'link "Salesforce Values: Quick Look"'
+      - text: Learn how Salesforce helps your business build stronger relationships with your customers.
+      - 'link "Start learning: Salesforce Values: Quick Look"': Start learning
+    - article:
+      - link "Salesforce CRM":
+        - img "Salesforce CRM"
+      - text: Module
+      - link "Salesforce CRM"
+      - text: Learn how to use customer relationship management (CRM) software to grow your business.
+      - 'link "Start learning: Salesforce CRM"': Start learning
+    - article:
+      - link "Sales Cloud Basics":
+        - img "Sales Cloud Basics"
+      - text: Module
+      - link "Sales Cloud Basics"
+      - text: Grow your business, boost productivity, and make smart decisions with Sales Cloud.
+      - 'link "Start learning: Sales Cloud Basics"': Start learning
+  - 'link "Learn for free: Learn valuable skills for free, with Trailhead."':
+    - text: Learn for free
+    - img
+  - article:
+    - heading "Over 150,000 companies, both big and small, are growing their business with Salesforce." [level=2]
+    - paragraph
+    - 'link "View all customers: Over 150,000 companies, both big and small, are growing their business with Salesforce."': View all customers
+    - link "Balaji logo":
+      - img "Balaji logo"
+    - link "Flame University logo":
+      - img "Flame University logo"
+    - link "Genpact Logo":
+      - img "Genpact Logo"
+    - link "Godrej logo":
+      - img "Godrej logo"
+    - link "Mahindra logo":
+      - img "Mahindra logo"
+    - link "Pepe Jeans Logo":
+      - img "Pepe Jeans Logo"
+    - link "Razorpay logo":
+      - img "Razorpay logo"
+    - link "Secutech logo":
+      - img "Secutech logo"
+  - article:
+    - heading "Try Salesforce for free. No credit card required, no software to install." [level=2]
+    - paragraph
+    - 'link "Start free trial: Try Salesforce for free. No credit card required, no software to install."': Start free trial
+    - 'link "See pricing: Try Salesforce for free. No credit card required, no software to install."':
+      - text: See pricing
+      - img
+  - heading "How can we help grow your business?" [level=2]
+  - article:
+    - link "Sell faster"
+  - article:
+    - link "Close more deals"
+  - article:
+    - link "Scale service"
+  - article:
+    - link "Build customer relationships"
+  - heading "Our technology helps people create better jobs, lives, companies, and communities." [level=2]
+  - article: Technology given for free or discounted
+  - article:
+    - paragraph: Fortune 100 Best Companies to Work For 2024 (16 years in a row)
+  - article:
+    - paragraph: Fortune World’s Most Admired Companies 2024
+  - article:
+    - heading "Questions? We’ll put you on the right path." [level=2]
+    - paragraph: Ask about Salesforce products, pricing, implementation, or anything else. Our highly trained reps are standing by, ready to help.
+    - 'link "Contact us: Questions? We’ll put you on the right path."':
+      - text: Contact us
+      - img
+    - 'link "Editions & pricing: Questions? We’ll put you on the right path."': Editions & pricing
+- contentinfo:
+  - link "Salesforce Home":
+    - img "Salesforce Home"
+  - link "Facebook":
+    - img
+  - link "Twitter":
+    - img
+  - link "LinkedIn":
+    - img
+  - link "Instagram":
+    - img
+  - link "Youtube":
+    - img
+  - paragraph: Call us at 1800-420-7332
+  - heading "New to Salesforce?" [level=3]
+  - list:
+    - listitem:
+      - link "Why Salesforce"
+    - listitem:
+      - link "What is CRM?"
+    - listitem:
+      - link "Explore All Products"
+    - listitem:
+      - link "SaaS"
+    - listitem:
+      - link "Customer Success"
+    - listitem:
+      - link "Product Pricing"
+  - heading "About Salesforce" [level=3]
+  - list:
+    - listitem:
+      - link "Our Story"
+    - listitem:
+      - link "Careers"
+    - listitem:
+      - link "Press(opens in a new window)":
+        - text: Press
+        - img "(opens in a new window)": 
+    - listitem:
+      - link "Blog(opens in a new window)":
+        - text: Blog
+        - img "(opens in a new window)": 
+    - listitem:
+      - link "Security and Performance(opens in a new window)":
+        - text: Security and Performance
+        - img "(opens in a new window)": 
+    - listitem:
+      - link "Salesforce.org(opens in a new window)":
+        - text: Salesforce.org
+        - img "(opens in a new window)": 
+    - listitem:
+      - link "Best CRM Software"
+    - listitem:
+      - link "Sustainability(opens in a new window)":
+        - text: Sustainability
+        - img "(opens in a new window)": 
+    - listitem:
+      - link "Legal(opens in a new window)":
+        - text: Legal
+        - img "(opens in a new window)": 
+    - listitem:
+      - link "Give us your Feedback"
+  - heading "Popular Links" [level=3]
+  - list:
+    - listitem:
+      - link "New Release Features(opens in a new window)":
+        - text: New Release Features
+        - img "(opens in a new window)": 
+    - listitem:
+      - link "Salesforce Mobile App"
+    - listitem:
+      - link "Business App Store(opens in a new window)":
+        - text: Business App Store
+        - img "(opens in a new window)": 
+    - listitem:
+      - link "Dreamforce(opens in a new window)":
+        - text: Dreamforce
+        - img "(opens in a new window)": 
+    - listitem:
+      - link "CRM Software"
+    - listitem:
+      - link "Salesforce Plus(opens in a new window)":
+        - text: Salesforce Plus
+        - img "(opens in a new window)": 
+    - listitem:
+      - link "Salesforce for startups(opens in a new window)":
+        - text: Salesforce for startups
+        - img "(opens in a new window)": 
+  - button "Worldwide": Worldwide
+  - navigation:
+    - list:
+      - listitem:
+        - link "Legal"
+      - listitem:
+        - link "Terms of Service"
+      - listitem:
+        - link "Privacy"
+      - listitem:
+        - link "Responsible Disclosure"
+      - listitem:
+        - link "Trust"
+      - listitem:
+        - link "Contact"
+      - listitem:
+        - link "Cookie Preferences"
+      - listitem:
+        - link "Your Privacy Choices":
+          - img
+          - text: Your Privacy Choices
+  - paragraph:
+    - text: © Copyright 2025 Salesforce, Inc.
+    - link "All rights reserved"
+    - text: . Various trademarks held by their respective owners.
+- region "Message Area":
+  - button "Collapse Agentforce":
+    - img
+  - group:
+    - img
+    - textbox "Message Agentforce"
+    - button "Message Agentforce" [disabled]:
+      - img
+```
+
+# Test source
+
+```ts
+   1 | import test from "@playwright/test";
+   2 |
+   3 | test(`Monitoring Network interception`,async({page})=>{
+   4 |  await page.goto("https://login.salesforce.com/")
+   5 |  //monitoring the request and response
+   6 |  page.on('request',request=>{
+   7 |     console.log(`<<--Request--->>`,request.method(),request.url(),request.postData());
+   8 |   })
+   9 | page.on('response', async response => {
+  10 |    const headers = await response.allHeaders();
+  11 |    console.log(`<<---Responses --->>`,  headers);
+  12 |  });
+  13 |   await page.fill("#username","vidyar@testleaf.com")
+  14 |  await page.fill("#password","Sales@123")
+  15 |  await page.click("#Login")
+  16 |  await page.waitForTimeout(5000)
+  17 |  await page.title()
+  18 | })
+  19 |
+  20 |
+  21 | test.only(`To abort the images from loading`,async({page})=>{
+  22 |    await page.route("**/*.{jpg,svg}",route=>route.abort())
+> 23 |    await page.goto("https://www.salesforce.com/")
+     |               ^ Error: page.goto: Test timeout of 30000ms exceeded.
+  24 |    await page.title()
+  25 |  await page.waitForTimeout(3000)
+  26 | })
+  27 |
+  28 |
+  29 | test(`Modififying the request `,async({page})=>{
+  30 |    await page.goto("https://login.salesforce.com/")
+  31 |
+  32 |    await page.route("**/aura?preloadActions",async(route,request)=>{
+  33 |        console.log(request.postData())
+  34 |        await route.continue({headers:
+  35 |          {
+  36 |          date: 'Sat, 20 Apr 2025 08:08:20 GMT',
+  37 |          },
+  38 |          postData:{
+  39 |             "aura:token":""
+  40 |          }
+  41 |        })      
+  42 |     })
+  43 |
+  44 |     await page.fill("#username","vidyar@testleaf.com")
+  45 |     await page.fill("#password","Sales@123")
+  46 |     await page.click("#Login")
+  47 |     await page.waitForTimeout(5000)
+  48 |     await page.title()
+  49 |    
+  50 | })
+  51 |
+  52 |
+  53 | test(`Modifying response`,async({page})=>{
+  54 |
+  55 |    await page.goto("https://login.salesforce.com/")
+  56 |
+  57 |    await page.route("**/aura?preloadActions",async(route,request)=>{
+  58 |    await route.fulfill({
+  59 |       status: 200,
+  60 |       contentType: 'application/json',
+  61 |       headers: {
+  62 |         date: 'Sun, 21 Apr 2025 08:08:20 GMT'
+  63 |       },
+  64 |       body: JSON.stringify({ result: "This is a mocked response for future date." })
+  65 |     });
+  66 |
+  67 |     page.on('response', async (response) => {
+  68 |       const url = response.url();
+  69 |       const headers = response.headers();
+  70 |       if (url.includes('aura?preloadActions')) {
+  71 |         console.log('✅ Mocked response for:', url);
+  72 |         console.log(headers);
+  73 |       }
+  74 |     });
+  75 |   })
+  76 |
+  77 |
+  78 |
+  79 |   await page.fill("#username","vidyar@testleaf.com")
+  80 |   await page.fill("#password","Sales@123")
+  81 |   await page.click("#Login")
+  82 |   await page.waitForTimeout(5000)
+  83 |   await page.title()
+  84 |  
+  85 | })
+```

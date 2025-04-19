@@ -1,0 +1,216 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: To abort the images from loading
+- Location: C:\Users\DELL\Desktop\POM_Feb\tests\ni.spec.ts:21:6
+
+# Error details
+
+```
+Error: page.goto: Test timeout of 30000ms exceeded.
+Call log:
+  - navigating to "https://www.salesforce.com/", waiting until "load"
+
+    at C:\Users\DELL\Desktop\POM_Feb\tests\ni.spec.ts:23:15
+```
+
+# Page snapshot
+
+```yaml
+- link "Skip to content"
+- main:
+  - article:
+    - paragraph: Humans with Agents, driving success together.
+    - link "Discover Agetnforce and its business benefits.": Discover Agentforce
+  - article:
+    - img
+    - paragraph: Hello!
+    - heading "Try Salesforce Starter Suite for free." [level=1]
+    - paragraph: Unite marketing, sales, and service in a single app. Try Salesforce Starter Suite today. There's nothing to install. No credit card required.
+    - 'link "Start free trial: Try Salesforce Starter Suite for free."': Start free trial
+    - 'link "Watch demo: Try Salesforce Starter Suite for free."': Watch demo
+  - heading "Learn what Salesforce products can do for you." [level=2]
+  - article:
+    - link "Small Business":
+      - img "Small Business"
+    - heading "Small Business" [level=3]:
+      - link "Small Business"
+    - paragraph: Sales, service, and email outreach tools in a single app.
+    - 'link "Learn more: Small Business"': Learn more
+  - article:
+    - link "Sales Cloud":
+      - img "Sales Cloud"
+    - heading "Sales Cloud" [level=3]:
+      - link "Sales Cloud"
+    - text: "Close more deals and speed up growth with the #1 CRM."
+    - 'link "Learn more: Sales Cloud"': Learn more
+  - article:
+    - link "Service Cloud":
+      - img "Service Cloud"
+    - heading "Service Cloud" [level=3]:
+      - link "Service Cloud"
+    - text: Make customers happy faster and build loyalty with Service Cloud.
+    - 'link "Learn more: Service Cloud"': Learn more
+  - article:
+    - link "Marketing Cloud":
+      - img "Marketing Cloud"
+    - heading "Marketing Cloud" [level=3]:
+      - link "Marketing Cloud"
+    - text: Build customer relationships for life with data-first digital marketing.
+    - 'link "Learn more: Marketing Cloud"': Learn more
+  - 'link "View all our products: Learn what Salesforce products can do for you."': View all our products
+  - article:
+    - heading "We bring companies and customers together" [level=2]
+    - paragraph: Salesforce is the world’s most trusted customer relationship management (CRM) platform. We help your marketing, sales, commerce, service and IT teams work as one from anywhere — so you can keep your customers happy everywhere.
+    - 'link "Start free trial: We bring companies and customers together"': Start free trial
+    - 'link "Watch demos: We bring companies and customers together"': Watch demos
+  - heading "Learn valuable skills for free, with Trailhead." [level=2]
+  - paragraph: Follow guided learning paths and get hands-on to learn Salesforce, digital, and soft skills from anywhere.
+  - article
+  - 'link "Learn for free: Learn valuable skills for free, with Trailhead."':
+    - text: Learn for free
+    - img
+  - article:
+    - heading "Over 150,000 companies, both big and small, are growing their business with Salesforce." [level=2]
+    - paragraph
+    - 'link "View all customers: Over 150,000 companies, both big and small, are growing their business with Salesforce."': View all customers
+    - link "Balaji logo":
+      - img "Balaji logo"
+    - link "Flame University logo":
+      - img "Flame University logo"
+    - link "Genpact Logo":
+      - img "Genpact Logo"
+    - link "Godrej logo":
+      - img "Godrej logo"
+    - link "Mahindra logo":
+      - img "Mahindra logo"
+    - link "Pepe Jeans Logo":
+      - img "Pepe Jeans Logo"
+    - link "Razorpay logo":
+      - img "Razorpay logo"
+    - link "Secutech logo":
+      - img "Secutech logo"
+  - article:
+    - heading "Try Salesforce for free. No credit card required, no software to install." [level=2]
+    - paragraph
+    - 'link "Start free trial: Try Salesforce for free. No credit card required, no software to install."': Start free trial
+    - 'link "See pricing: Try Salesforce for free. No credit card required, no software to install."':
+      - text: See pricing
+      - img
+  - heading "How can we help grow your business?" [level=2]
+  - article:
+    - link "Sell faster"
+  - article:
+    - link "Close more deals"
+  - article:
+    - link "Scale service"
+  - article:
+    - link "Build customer relationships"
+  - heading "Our technology helps people create better jobs, lives, companies, and communities." [level=2]
+  - article: Technology given for free or discounted
+  - article:
+    - paragraph: Fortune 100 Best Companies to Work For 2024 (16 years in a row)
+  - article:
+    - paragraph: Fortune World’s Most Admired Companies 2024
+  - article:
+    - heading "Questions? We’ll put you on the right path." [level=2]
+    - paragraph: Ask about Salesforce products, pricing, implementation, or anything else. Our highly trained reps are standing by, ready to help.
+    - 'link "Contact us: Questions? We’ll put you on the right path."':
+      - text: Contact us
+      - img
+    - 'link "Editions & pricing: Questions? We’ll put you on the right path."': Editions & pricing
+```
+
+# Test source
+
+```ts
+   1 | import test from "@playwright/test";
+   2 |
+   3 | test(`Monitoring Network interception`,async({page})=>{
+   4 |  await page.goto("https://login.salesforce.com/")
+   5 |  //monitoring the request and response
+   6 |  page.on('request',request=>{
+   7 |     console.log(`<<--Request--->>`,request.method(),request.url(),request.postData());
+   8 |   })
+   9 | page.on('response', async response => {
+  10 |    const headers = await response.allHeaders();
+  11 |    console.log(`<<---Responses --->>`,  headers);
+  12 |  });
+  13 |   await page.fill("#username","vidyar@testleaf.com")
+  14 |  await page.fill("#password","Sales@123")
+  15 |  await page.click("#Login")
+  16 |  await page.waitForTimeout(5000)
+  17 |  await page.title()
+  18 | })
+  19 |
+  20 |
+  21 | test.only(`To abort the images from loading`,async({page})=>{
+  22 |    //await page.route("**/*.{gif}",route=>route.abort())
+> 23 |    await page.goto("https://www.salesforce.com/")
+     |               ^ Error: page.goto: Test timeout of 30000ms exceeded.
+  24 |    await page.waitForTimeout(5000)
+  25 | })
+  26 |
+  27 |
+  28 | test(`Modififying the request `,async({page})=>{
+  29 |    await page.goto("https://login.salesforce.com/")
+  30 |
+  31 |    await page.route("**/aura?preloadActions",async(route,request)=>{
+  32 |        console.log(request.postData())
+  33 |        await route.continue({headers:
+  34 |          {
+  35 |          date: 'Sat, 20 Apr 2025 08:08:20 GMT',
+  36 |          },postData:{
+  37 |             "aura:token":""
+  38 |          }
+  39 |        })      
+  40 |     })
+  41 |
+  42 |     await page.fill("#username","vidyar@testleaf.com")
+  43 |     await page.fill("#password","Sales@123")
+  44 |     await page.click("#Login")
+  45 |     await page.waitForTimeout(5000)
+  46 |     await page.title()
+  47 |    
+  48 | })
+  49 |
+  50 |
+  51 | test(`Modifying response`,async({page})=>{
+  52 |
+  53 |    await page.goto("https://login.salesforce.com/")
+  54 |
+  55 |    await page.route("**/aura?preloadActions",async(route,request)=>{
+  56 |    await route.fulfill({
+  57 |       status: 200,
+  58 |       contentType: 'application/json',
+  59 |       headers: {
+  60 |         date: 'Sun, 21 Apr 2025 08:08:20 GMT'
+  61 |       },
+  62 |       body: JSON.stringify({ result: "This is a mocked response for future date." })
+  63 |     });
+  64 |
+  65 |     page.on('response', async (response) => {
+  66 |       const url = response.url();
+  67 |       const headers = response.headers();
+  68 |       if (url.includes('aura?preloadActions')) {
+  69 |         console.log('✅ Mocked response for:', url);
+  70 |         console.log(headers);
+  71 |       }
+  72 |     });
+  73 |   })
+  74 |
+  75 |
+  76 |
+  77 |   await page.fill("#username","vidyar@testleaf.com")
+  78 |   await page.fill("#password","Sales@123")
+  79 |   await page.click("#Login")
+  80 |   await page.waitForTimeout(5000)
+  81 |   await page.title()
+  82 |  
+  83 | })
+```
